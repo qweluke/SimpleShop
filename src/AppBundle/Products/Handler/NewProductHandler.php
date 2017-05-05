@@ -28,8 +28,6 @@ class NewProductHandler
         $this->em->persist($product);
         $this->em->flush();
 
-
         // send email
-
     }
 }
