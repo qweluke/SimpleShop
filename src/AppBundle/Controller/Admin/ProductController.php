@@ -2,9 +2,9 @@
 
 namespace AppBundle\Controller\Admin;
 
+use AppBundle\Exception\InvalidProductException;
 use AppBundle\Form;
 use AppBundle\Products\Command\NewProductCommand;
-use Qweluke\CSVImporterBundle\Exception\InvalidProductException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -38,7 +38,7 @@ class ProductController extends Controller
                 $this->get('product_handler')->handle($formProduct->getData());
                 return $this->redirectToRoute('homepage');
             } catch (InvalidProductException $ex) {
-
+                $this->get('session')->getFlashBag()->add('warning', $ex->getMessage());
             }
         }
 

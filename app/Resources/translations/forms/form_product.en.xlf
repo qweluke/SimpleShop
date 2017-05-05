@@ -18,6 +18,10 @@
                 <source>form_product.submit</source>
                 <target>Submit!</target>
             </trans-unit>
+            <trans-unit id="form_product.form_invalid">
+                <source>form_product.form_invalid</source>
+                <target>Form is invalid!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

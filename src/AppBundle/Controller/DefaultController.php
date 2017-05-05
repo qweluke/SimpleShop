@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,7 +23,6 @@ class DefaultController extends Controller
             10
         );
 
-        // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'pagination' => $pagination
         ]);

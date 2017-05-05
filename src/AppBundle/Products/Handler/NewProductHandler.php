@@ -3,10 +3,10 @@
 namespace AppBundle\Products\Handler;
 
 use AppBundle\Entity\Product;
+use AppBundle\Exception\InvalidProductException;
 use AppBundle\Products\Command\NewProductCommand;
 use AppBundle\Products\NewProductNotificationSender;
 use Doctrine\ORM\EntityManager;
-use Qweluke\CSVImporterBundle\Exception\InvalidProductException;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class NewProductHandler
@@ -46,8 +46,12 @@ class NewProductHandler
     public function handle(NewProductCommand $productCommand)
     {
 
-        if ($this->validator->validate($productCommand)->count()) {
-            throw new InvalidProductException();
+        $productErrors = $this->validator->validate($productCommand);
+        if ($productErrors->count()) {
+            throw new InvalidProductException(sprintf('Field %s is invalid! Reason: %s',
+                $productErrors->get(0)->getPropertyPath(), //always return first error
+                $productErrors->get(0)->getMessage()
+            ));
         }
 
         $product = new Product();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Qweluke\CSVImporterBundle\Exception;
+namespace AppBundle\Exception;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
