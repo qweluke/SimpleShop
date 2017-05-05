@@ -45,13 +45,9 @@ class NewProductHandler
      */
     public function handle(NewProductCommand $productCommand)
     {
-
         $productErrors = $this->validator->validate($productCommand);
         if ($productErrors->count()) {
-            throw new InvalidProductException(sprintf('Field %s is invalid! Reason: %s',
-                $productErrors->get(0)->getPropertyPath(), //always return first error
-                $productErrors->get(0)->getMessage()
-            ));
+            throw new InvalidProductException();
         }
 
         $product = new Product();

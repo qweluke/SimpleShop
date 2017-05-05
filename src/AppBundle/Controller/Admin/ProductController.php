@@ -38,7 +38,7 @@ class ProductController extends Controller
                 $this->get('product_handler')->handle($formProduct->getData());
                 return $this->redirectToRoute('homepage');
             } catch (InvalidProductException $ex) {
-                $this->get('session')->getFlashBag()->add('warning', $ex->getMessage());
+                $this->get('session')->getFlashBag()->add('warning', $formProduct->getErrors(true, true));
             }
         }
 

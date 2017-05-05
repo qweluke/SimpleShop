@@ -10,6 +10,9 @@ namespace AppBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return \Doctrine\ORM\QueryBuilder
+     */
     public function getProductList()
     {
         return $this->createQueryBuilder('p')->orderBy('p.id', 'desc');
