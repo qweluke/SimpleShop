@@ -8,6 +8,6 @@ services:
     #    class: AppBundle\Directory\ClassName
     #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
 
-    app_product:
-        class: AppBundle\Service\Product
+    product_handler:
+        class: AppBundle\Products\Handler\NewProductHandler
         arguments: ['@doctrine.orm.entity_manager']
