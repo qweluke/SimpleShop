@@ -23,7 +23,7 @@ class NewProductHandler
     public function handle(NewProductCommand $productCommand)
     {
 
-        if($this->validator->validate($productCommand)->count()) {
+        if ($this->validator->validate($productCommand)->count()) {
             return false;
         }
 
@@ -37,14 +37,11 @@ class NewProductHandler
         $this->em->flush();
 
         // send email
-<<<<<<< HEAD
         return $product->getId();
     }
 
     public function getProductList()
     {
         return $this->em->getRepository(Product::class)->getProductList();
-=======
->>>>>>> e8370e01667d1e476616ade9854fbed5968155ea
     }
 }
