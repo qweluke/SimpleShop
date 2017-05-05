@@ -1,10 +1,10 @@
 <?php
 
-namespace AppBundle\Service;
+namespace AppBundle\Products;
 
 use AppBundle\Entity\Product;
 
-class Mailer
+class NewProductNotificationSender
 {
 
     /**

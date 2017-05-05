@@ -4,7 +4,7 @@ namespace AppBundle\Products\Handler;
 
 use AppBundle\Entity\Product;
 use AppBundle\Products\Command\NewProductCommand;
-use AppBundle\Service\Mailer;
+use AppBundle\Products\NewProductNotificationSender;
 use Doctrine\ORM\EntityManager;
 use Qweluke\CSVImporterBundle\Exception\InvalidProductException;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -22,7 +22,7 @@ class NewProductHandler
     private $validator;
 
     /**
-     * @var Mailer
+     * @var NewProductNotificationSender
      */
     private $mailer;
 
@@ -30,9 +30,9 @@ class NewProductHandler
      * NewProductHandler constructor.
      * @param EntityManager $entityManager
      * @param ValidatorInterface $validator
-     * @param Mailer $mailer
+     * @param NewProductNotificationSender $mailer
      */
-    public function __construct(EntityManager $entityManager, ValidatorInterface $validator, Mailer $mailer)
+    public function __construct(EntityManager $entityManager, ValidatorInterface $validator, NewProductNotificationSender $mailer)
     {
         $this->em = $entityManager;
         $this->validator = $validator;

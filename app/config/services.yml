@@ -13,5 +13,5 @@ services:
         arguments: ['@doctrine.orm.entity_manager', '@validator', '@app_mailer']
 
     app_mailer:
-        class: AppBundle\Service\Mailer
+        class: AppBundle\Products\NewProductNotificationSender
         arguments: ['@swiftmailer.mailer']
