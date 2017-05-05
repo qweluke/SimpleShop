@@ -36,13 +36,15 @@ class NewProductHandler
         $this->em->persist($product);
         $this->em->flush();
 
-
         // send email
+<<<<<<< HEAD
         return $product->getId();
     }
 
     public function getProductList()
     {
         return $this->em->getRepository(Product::class)->getProductList();
+=======
+>>>>>>> e8370e01667d1e476616ade9854fbed5968155ea
     }
 }
