@@ -10,4 +10,8 @@ services:
 
     product_handler:
         class: AppBundle\Products\Handler\NewProductHandler
-        arguments: ['@doctrine.orm.entity_manager', '@validator']
+        arguments: ['@doctrine.orm.entity_manager', '@validator', '@app_mailer']
+
+    app_mailer:
+        class: AppBundle\Service\Mailer
+        arguments: ['@swiftmailer.mailer']
