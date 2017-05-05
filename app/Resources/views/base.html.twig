@@ -27,6 +27,12 @@
                 <ul class="nav navbar-nav">
                     <li class="{{ app.request.get('_route') == 'homepage' ? 'active' : '' }}"><a href="{{ path('homepage') }}">Product list</a></li>
                     <li class="{{ app.request.get('_route') == 'app_admin_product_index' ? 'active' : '' }}"><a href="{{ path('app_admin_product_index') }}">Add new product</a></li>
+
+                    {% if app.user %}
+                        <li><a href="{{ path('logout') }}">logout</a></li>
+                    {% else %}
+                        <li class="{{ app.request.get('_route') == 'login' ? 'active' : '' }}"><a href="{{ path('login') }}">login</a></li>
+                    {% endif %}
                 </ul>
             </div><!-- /.nav-collapse -->
         </div><!-- /.container -->

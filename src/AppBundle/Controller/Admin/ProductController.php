@@ -18,8 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ProductController extends Controller
 {
-
-
     /**
      * @Route("/new-product")
      * @Security("has_role('ROLE_USER')")
@@ -28,7 +26,6 @@ class ProductController extends Controller
      */
     public function indexAction(Request $request)
     {
-
         $object = new NewProductCommand();
         $formProduct = $this->createForm(Form\Product::class, $object);
         $formProduct->handleRequest($request);

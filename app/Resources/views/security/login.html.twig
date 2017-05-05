@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6">
+            {% if error %}
+                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            <form class="form-signin" action="{{ path('login') }}" method="post">
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <label for="inputUsername" class="sr-only">username</label>
+                <input type="text" id="inputUsername" class="form-control" placeholder="username" name="_username"
+                       required=""
+                       autofocus="">
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="_password"
+                       required="">
+                <div class="checkbox"></div>
+                <button class="btn btn-lg btn-default btn-block" type="submit">Sign in</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-info" style="margin-top: 70px;">
+                <div class="panel-heading panel-info">
+                    <h3 class="panel-title">Login credentials</h3>
+                </div>
+                <div class="panel-body">
+                    <p class="text-info">You can login to the system with this credentials:</p>
+                    <dl class="dl-horizontal">
+                        <dt>user</dt>
+                        <dd>user123</dd>
+
+                        <dt>admin</dt>
+                        <dd>admin123</dd>
+                    </dl>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

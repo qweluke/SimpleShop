@@ -3,5 +3,28 @@ form {
   padding-bottom: 70px; }
   form label {
     color: #fff; }
+  form.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto; }
+    form.form-signin .form-signin-heading, form.form-signin .checkbox {
+      margin-bottom: 10px; }
+    form.form-signin .form-signin-heading {
+      margin-bottom: 10px;
+      color: #fff; }
+    form.form-signin .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 10px;
+      margin-top: 5px !important;
+      font-size: 16px; }
+    form.form-signin .btn-default {
+      background-color: #9E9E9E; }
+      form.form-signin .btn-default:hover {
+        background-color: #5e5e5e;
+        color: whitesmoke; }
 
 /*# sourceMappingURL=form.css.map */
