@@ -4,6 +4,7 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Form;
 use AppBundle\Products\Command\NewProductCommand;
+use Qweluke\CSVImporterBundle\Exception\InvalidProductException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -33,9 +34,11 @@ class ProductController extends Controller
         $formProduct->handleRequest($request);
 
         if ($formProduct->isSubmitted() && $formProduct->isValid()) {
-            $state = $this->get('product_handler')->handle($formProduct->getData());
-            if($state) {
+            try {
+                $this->get('product_handler')->handle($formProduct->getData());
                 return $this->redirectToRoute('homepage');
+            } catch (InvalidProductException $ex) {
+
             }
         }
 

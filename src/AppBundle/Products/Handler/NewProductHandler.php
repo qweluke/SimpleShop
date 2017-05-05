@@ -6,6 +6,7 @@ use AppBundle\Entity\Product;
 use AppBundle\Products\Command\NewProductCommand;
 use AppBundle\Service\Mailer;
 use Doctrine\ORM\EntityManager;
+use Qweluke\CSVImporterBundle\Exception\InvalidProductException;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class NewProductHandler
@@ -46,7 +47,7 @@ class NewProductHandler
     {
 
         if ($this->validator->validate($productCommand)->count()) {
-            return false;
+            throw new InvalidProductException();
         }
 
         $product = new Product();
