@@ -63,12 +63,4 @@ class NewProductHandler
 
         return $product->getId();
     }
-
-    /**
-     * @return \Doctrine\ORM\QueryBuilder
-     */
-    public function getProductList()
-    {
-        return $this->em->getRepository(Product::class)->getProductList();
-    }
 }

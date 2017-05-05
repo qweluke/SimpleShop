@@ -10,8 +10,8 @@ services:
 
     product_handler:
         class: AppBundle\Products\Handler\NewProductHandler
-        arguments: ['@doctrine.orm.entity_manager', '@validator', '@app_mailer']
+        autowire: true
 
-    app_mailer:
-        class: AppBundle\Products\NewProductNotificationSender
-        arguments: ['@swiftmailer.mailer']
+    products_doctrine:
+        class: AppBundle\Products\Query\DoctrineProducts
+        arguments: ['@doctrine.orm.entity_manager']

@@ -19,7 +19,7 @@ class DefaultController extends Controller
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $this->get('product_handler')->getProductList(),
+            $this->get('products_doctrine')->getAll(),
             $request->query->getInt('page', 1),
             10
         );
