@@ -10,4 +10,4 @@ services:
 
     product_handler:
         class: AppBundle\Products\Handler\NewProductHandler
-        arguments: ['@doctrine.orm.entity_manager']
+        arguments: ['@doctrine.orm.entity_manager', '@validator']

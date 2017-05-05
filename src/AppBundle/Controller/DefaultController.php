@@ -11,15 +11,15 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(Request $request)
     {
 
-        $list = $this->getDoctrine()->getRepository(Product::class)->getProductList();
-
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $list,
+            $this->get('product_handler')->getProductList(),
             $request->query->getInt('page', 1),
             10
         );

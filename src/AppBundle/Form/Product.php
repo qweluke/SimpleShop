@@ -54,6 +54,7 @@ class Product extends AbstractType
     {
         $resolver->setDefaults([
             'translation_domain' => 'form_product',
+            'validation_groups' => false,
             'data_class' => NewProductCommand::class
         ]);
     }

@@ -1,9 +1,9 @@
 <?php
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  *
@@ -22,24 +22,16 @@ class Product
 
     /**
      * @ORM\Column(name="name", type="string")
-     * @Assert\NotNull()
      */
     private $name;
 
     /**
      * @ORM\Column(name="description", type="string")
-     * @Assert\NotNull()
-     * @Assert\Length(
-     *     min="100",
-     *     max="255",
-     *     minMessage="form_product.validation.min"
-     * )
      */
     private $description;
 
     /**
      * @ORM\Column(name="price", type="float")
-     * @Assert\Type(type="float", message="form_product.validation.price")
      */
     private $price;
 

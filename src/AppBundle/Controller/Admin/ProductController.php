@@ -33,8 +33,10 @@ class ProductController extends Controller
         $formProduct->handleRequest($request);
 
         if ($formProduct->isSubmitted() && $formProduct->isValid()) {
-            $this->get('product_handler')->handle($formProduct->getData());
-            return $this->redirectToRoute('homepage');
+            $state = $this->get('product_handler')->handle($formProduct->getData());
+            if($state) {
+                return $this->redirectToRoute('homepage');
+            }
         }
 
         return $this->render(':admin:productForm.html.twig', [
