@@ -13,7 +13,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
     /**
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function getProductList()
+    public function getProductListQuery()
     {
         return $this->createQueryBuilder('p')->orderBy('p.id', 'desc');
     }

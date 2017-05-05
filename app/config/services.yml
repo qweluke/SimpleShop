@@ -14,4 +14,4 @@ services:
 
     products_doctrine:
         class: AppBundle\Products\Query\DoctrineProducts
-        arguments: ['@doctrine.orm.entity_manager']
+        arguments: ['@doctrine.orm.entity_manager', '@knp_paginator']
