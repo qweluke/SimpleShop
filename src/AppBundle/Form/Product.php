@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Products\Command\NewProductCommand;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -53,7 +54,7 @@ class Product extends AbstractType
     {
         $resolver->setDefaults([
             'translation_domain' => 'form_product',
-            'data_class' => \AppBundle\Entity\Product::class
+            'data_class' => NewProductCommand::class
         ]);
     }
 

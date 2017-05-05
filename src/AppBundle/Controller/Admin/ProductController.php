@@ -4,6 +4,8 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Product;
 use AppBundle\Form;
+use AppBundle\Products\Command\NewProductCommand;
+use AppBundle\Products\Handler\NewProductHandler;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -17,6 +19,14 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ProductController extends Controller
 {
+
+    private $commandBus;
+
+    public function __construct()
+    {
+        $this->commandBus = new NewProductHandler();
+    }
+
     /**
      * @Route("/new-product")
      * @Security("has_role('ROLE_USER')")
@@ -26,16 +36,14 @@ class ProductController extends Controller
     public function indexAction(Request $request)
     {
 
-        $object = new Product();
+        $object = new NewProductCommand();
         $formProduct = $this->createForm(Form\Product::class, $object);
 
         $formProduct->handleRequest($request);
 
         if($formProduct->isSubmitted() && $formProduct->isValid()) {
-            $em = $this->getDoctrine()->getManager();
 
-            $em->persist($object);
-            $em->flush();
+            $this->commandBus->handle($formProduct->getData());
 
             return $this->redirectToRoute('homepage');
         }
