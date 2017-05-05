@@ -30,6 +30,10 @@ class DoctrineProducts
         $this->paginator = $paginator;
     }
 
+    /**
+     * @param int $page
+     * @return \Knp\Component\Pager\Pagination\PaginationInterface
+     */
     public function getAllPaginated(int $page)
     {
         $query = $this->em->getRepository(Product::class)->getProductListQuery();

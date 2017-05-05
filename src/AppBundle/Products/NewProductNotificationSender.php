@@ -12,11 +12,18 @@ class NewProductNotificationSender
      */
     private $mailer;
 
+    /**
+     * NewProductNotificationSender constructor.
+     * @param \Swift_Mailer $mailer
+     */
     public function __construct(\Swift_Mailer $mailer)
     {
         $this->mailer = $mailer;
     }
 
+    /**
+     * @param Product $product
+     */
     public function sendNewProductEmail(Product $product)
     {
         $message = \Swift_Message::newInstance()

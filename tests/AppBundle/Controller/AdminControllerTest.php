@@ -8,9 +8,15 @@ use AppBundle\Products\Handler\NewProductHandler;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
-
+/**
+ * Class AdminControllerTest
+ * @package Tests\AppBundle\Controller
+ */
 class AdminControllerTest extends TestCase
 {
+    /**
+     * Test success adding product
+     */
     public function testAddSuccessProduct()
     {
         $product = new NewProductCommand();
