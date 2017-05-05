@@ -33,7 +33,7 @@ class DoctrineProducts
     public function getAllPaginated(int $page)
     {
         $query = $this->em->getRepository(Product::class)->getProductListQuery();
-        $paginator = $this->paginator; //przekaz paginator do tego serwisu
+        $paginator = $this->paginator;
         return $paginator->paginate($query, $page, 10);
     }
 }
