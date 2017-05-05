@@ -5,7 +5,6 @@ namespace Tests\AppBundle\Controller;
 use AppBundle\Entity\Product;
 use AppBundle\Products\Command\NewProductCommand;
 use AppBundle\Products\Handler\NewProductHandler;
-use AppBundle\Repository\ProductRepository;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
@@ -65,6 +64,9 @@ class AdminControllerTest extends TestCase
         $productHandler->handle($product);
     }
 
+    /**
+     * @expectedException AppBundle\Exception\InvalidProductException
+     */
     public function testAddFailProduct()
     {
         $product = new NewProductCommand();
@@ -87,7 +89,7 @@ class AdminControllerTest extends TestCase
         $productNotificationSenderMock = m::mock('AppBundle\Products\NewProductNotificationSender');
         $productNotificationSenderMock->shouldNotReceive('sendNewProductEmail');
         $productHandler = new NewProductHandler($entityManagerMock, $validatorMock, $productNotificationSenderMock);
-        var_dump($productHandler->handle($product));
+        $productHandler->handle($product);
     }
 
     public function tearDown()
