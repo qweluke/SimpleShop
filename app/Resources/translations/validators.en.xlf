@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="form_product.validation.min">
+                <source>form_product.validation.min</source>
+                <target>This field require at least {{ limit }} chars!</target>
+            </trans-unit>
+            <trans-unit id="form_product.validation.price">
+                <source>form_product.validation.price</source>
+                <target>Price must be a numeric value</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

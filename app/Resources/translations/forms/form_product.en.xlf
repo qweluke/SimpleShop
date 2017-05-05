@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="form_product.name">
+                <source>form_product.name</source>
+                <target>Product name</target>
+            </trans-unit>
+            <trans-unit id="form_product.description">
+                <source>form_product.description</source>
+                <target>Description</target>
+            </trans-unit>
+            <trans-unit id="form_product.price">
+                <source>form_product.price</source>
+                <target>Product price</target>
+            </trans-unit>
+            <trans-unit id="form_product.submit">
+                <source>form_product.submit</source>
+                <target>Submit!</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
