@@ -1,4 +1,5 @@
 <?php
+
 namespace AppBundle\Products\Handler;
 
 use AppBundle\Entity\Product;
