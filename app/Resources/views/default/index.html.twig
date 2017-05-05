@@ -10,7 +10,8 @@
             </p>
             <div class="jumbotron">
                 <h1>Hello, world!</h1>
-                <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+                <p>Below you can find our products. You can also <a href="{{ path('app_admin_product_index') }}">add</a>
+                    new one!</p>
             </div>
             <div class="row">
 
@@ -27,6 +28,17 @@
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                        <div class="col-md-12">
+                            <div class="thumbnail">
+                                <div class="caption"><h3>No product yet!</h3>
+                                    <p>Click below to add new product!</p>
+                                    <p>
+                                        <a href="{{ path('app_admin_product_index') }}" class="btn btn-success" role="button">Add new product</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                 {% endfor %}
 
             </div><!--/row-->
