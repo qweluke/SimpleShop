@@ -4,6 +4,9 @@ Simple Shop
 A Symfony 3.2 project created on May 5, 2017, 8:53 am.
 This project requires PHP 7.x.
 
+##### Project statistics
+Please visit [https://qweluke.github.io/SimpleShop/build/](https://qweluke.github.io/SimpleShop/build/) to see the PHPMetrics statistics and PHPUnit code coverage  
+
 Included packages:
 - KNPPaginatorBundle
 - PHPUnit
